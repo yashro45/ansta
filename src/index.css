@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* The legacy modals use the "teal" scale; it is remapped to the brand indigo so everything matches. */
+  --color-teal-50: #eef0ff;
+  --color-teal-100: #e0e4ff;
+  --color-teal-200: #c4cbff;
+  --color-teal-300: #a0a9ff;
+  --color-teal-400: #7b84f5;
+  --color-teal-500: #5a63e6;
+  --color-teal-600: #4650d6;
+  --color-teal-700: #3a41b8;
+  --color-teal-800: #30368f;
+  --color-teal-900: #272c6e;
+  --color-teal-950: #181b45;
+
+  --color-ink: #0b1226;
+  --color-gold: #f2b84b;
+
+  --animate-fadeIn: fadeIn 0.25s ease-out;
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+html, body, #root { min-height: 100%; }
+body {
+  margin: 0;
+  background: #f3f5fa;
+  color: #0e1630;
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible { outline: 2px solid #4650d6; outline-offset: 2px; }
+
+.fg-card {
+  background: #fff;
+  border: 1px solid #e4e8f1;
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(14, 22, 48, 0.04), 0 10px 28px -16px rgba(14, 22, 48, 0.12);
+}
+
+.fg-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+.fg-scroll::-webkit-scrollbar-thumb { background: #cfd5e4; border-radius: 6px; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Landing: one orchestrated hero sequence */
+@keyframes lp-scan { 0% { transform: translateY(-10%); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(105%); opacity: 0; } }
+@keyframes lp-box { from { opacity: 0; transform: scale(1.12); } to { opacity: 1; transform: scale(1); } }
+@keyframes lp-row { from { opacity: 0; transform: translateX(8px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes lp-blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0.15; } }
+.lp-scan { animation: lp-scan 2.6s ease-in-out 0.4s 1 both; }
+.lp-box { animation: lp-box 0.5s cubic-bezier(.2,.8,.2,1) both; transform-box: fill-box; transform-origin: center; }
+.lp-row { animation: lp-row 0.5s ease-out both; }
+.lp-rec { animation: lp-blink 1.4s steps(1) infinite; }

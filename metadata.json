@@ -1,0 +1,6 @@
+{
+  "name": "FranchiseGuard AI",
+  "description": "FranchiseGuard: franchise standards audit and business analytics platform with owner, store and officer portals.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
